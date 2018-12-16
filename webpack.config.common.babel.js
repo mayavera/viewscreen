@@ -1,10 +1,14 @@
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const resolve = (...parts) => path.join(__dirname, ...parts)
 
 export default {
-  entry: resolve('src', 'main.js'),
+  entry: [
+    resolve('src', 'main.js'),
+    resolve('src', 'main.scss')
+  ],
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Ticket Evolution Map',
@@ -12,6 +16,9 @@ export default {
       meta: {
         viewport: 'width=device-width, initial-scale=1'
       }
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
     })
   ],
   module: {
@@ -44,6 +51,19 @@ export default {
           }
         }
       },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          'sass-loader'
+        ]
+      }
     ]
   }
 }
