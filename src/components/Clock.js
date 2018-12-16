@@ -1,5 +1,7 @@
 import { Component } from 'react'
 import { DateTime } from 'luxon'
+import classnames from 'classnames'
+import c from './Clock.scss'
 
 export default class Clock extends Component {
   state = {
@@ -19,6 +21,8 @@ export default class Clock extends Component {
   }
 
   render = () => (
-    <div>{this.state.time.toLocaleString(DateTime.TIME_SIMPLE)}</div>
+    <div {...this.props} className={classnames(c.clock, this.props.className)}>
+      {this.state.time.toLocaleString(DateTime.TIME_SIMPLE)}
+    </div>
   )
 }

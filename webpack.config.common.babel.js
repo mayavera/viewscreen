@@ -58,7 +58,9 @@ export default {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[path][name]_[local]_[hash:base64:5]'
             }
           },
           'sass-loader'
