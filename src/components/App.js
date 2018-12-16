@@ -1,1 +1,8 @@
-export default () => <h1>Hello, World!</h1>
+import Clock from './Clock'
+import c from './App.scss'
+
+export default () => (
+  <div className={c.app}>
+    <Clock className={c.clock} />
+  </div>
+)
