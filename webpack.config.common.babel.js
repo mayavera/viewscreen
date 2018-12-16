@@ -29,7 +29,8 @@ export default {
               '@babel/preset-react'
             ],
             plugins: [
-              'babel-plugin-react-require'
+              'babel-plugin-react-require',
+              '@babel/plugin-proposal-class-properties'
             ]
           }
         }

@@ -1,1 +1,7 @@
-export default () => <h1>Hello, World!</h1>
+import Clock from './Clock'
+
+export default () => (
+  <div>
+    <Clock />
+  </div>
+)
